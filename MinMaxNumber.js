@@ -1,5 +1,7 @@
-// Find Min number from an array/list
+// Find Min and Max number from an array in Javascript
 
+
+//array should alaways be declared using const keyword (best practise)
 const array = [1,2,3,4,5,6,-3,99];
 
 let min = array[0];
