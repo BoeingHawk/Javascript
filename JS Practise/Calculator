@@ -1,0 +1,104 @@
+//HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello JavaScript!</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <h1>Calculator</h1>
+
+    <input type="number" placeholder="Enter First Number" id="num1"> 
+    <br><br>
+    <input type="number" placeholder="Enter Second Number" id="num2">
+
+    <br><br><br>
+
+    <button onclick="setOperation('+')">Addition</button> 
+    <button onclick="setOperation('-')">Subtraction</button>
+    <button onclick="setOperation('*')">Multiplication</button>
+    <button onclick="setOperation('/')">Division</button>
+    
+    <br><br><br>
+
+    <button onclick="calculate()">Submit</button> 
+    
+    
+    <p id = "demo"></p>
+
+    
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+//JS
+
+
+let selectedOperation = null;
+
+function setOperation(Operation){
+    selectedOperation = Operation;
+}
+
+
+function calculate() {
+
+let num1 = parseFloat(document.getElementById("num1").value);
+let num2 = parseFloat(document.getElementById("num2").value);
+
+if(isNaN(num1) || isNaN(num2)) {
+    document.getElementById("demo").innerHTML = "Please enter valid numbers.";
+    return;
+}
+
+if(!selectedOperation){
+    document.getElementById("demo").innerHTML = "Please select a valid operation.";
+    return;
+}
+
+let result;
+let operationName;
+
+
+switch(selectedOperation){
+    case '+':
+        result = num1 + num2;
+        operationName = "Addition";
+        break;
+
+    case '-':
+        result = num1 - num2;
+        operationName = "Subtraction";
+        break;
+
+    case '*':
+        result = num1 * num2;
+        operationName = "Multiplication";
+        break;
+
+    case '-':
+        if(num2 == 0){
+            document.getElementById("demo").innerHTML = "Can't divide by zero";
+        }
+        result = num1 / num2;
+        operationName = "Division";
+        break;            
+
+
+}
+
+
+document.getElementById("demo").innerHTML = `Result of ${operationName} is: ${result}`;
+}
+
