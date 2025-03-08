@@ -87,8 +87,8 @@ switch(selectedOperation){
         operationName = "Multiplication";
         break;
 
-    case '-':
-        if(num2 == 0){
+    case '/':
+        if(num2 === 0){
             document.getElementById("demo").innerHTML = "Can't divide by zero";
         }
         result = num1 / num2;
@@ -97,7 +97,6 @@ switch(selectedOperation){
 
 
 }
-
 
 document.getElementById("demo").innerHTML = `Result of ${operationName} is: ${result}`;
 }
